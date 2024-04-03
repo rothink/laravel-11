@@ -13,8 +13,8 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::post('/primo/{number}', function(Request $request, $number) {
     for ($i = 2; $i < $number; $i++){
         if ($number % $i == 0) {
-            return response()->json('NÃO é primo');
+            return response()->json(['verify' => false]);
         }
     }
-    return response()->json('É primo');
+    return response()->json(['verify' => true]);
 });
